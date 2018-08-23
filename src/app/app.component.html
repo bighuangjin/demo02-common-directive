@@ -1,1 +1,21 @@
-<p>app!</p>
+<ul>
+  <li *ngFor="let item of arr; let key = index">{{item}}</li>
+</ul>
+<!-- ngIf 简单使用 -->
+<div *ngIf="bool">看得见我吗</div>
+
+<!-- if - else 的用法 -->
+<div *ngIf="bool; else elseTemplate">
+  我是if
+</div>
+<ng-template #elseTemplate>
+  我是else
+</ng-template>
+<!-- if - else - if 用法-->
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<button (click)="switchPrimary()">Switch Primary</button> show = {{show}}
+<br>
+<div *ngIf="show; then thenCheck; else elseBlock">this is ignored</div>
+<ng-template #first>first</ng-template>
+<ng-template #second>second</ng-template>
+<ng-template #elseBlock>last</ng-template>
